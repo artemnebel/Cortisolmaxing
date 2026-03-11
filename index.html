@@ -472,11 +472,11 @@
     /* Bullet cards grid */
     .bullet-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 20px;
       margin-bottom: 64px;
     }
-    @media (max-width: 860px) { .bullet-grid { grid-template-columns: 1fr; } }
+    @media (min-width: 861px) { .bullet-grid { grid-template-columns: repeat(3, 1fr); } }
 
     /* Color rotation for cards */
     .bullet-card {
@@ -766,7 +766,7 @@
       .problem-block { padding: 36px 24px; }
 
       /* Keep bullet grids single column */
-      .bullet-grid { grid-template-columns: 1fr !important; gap: 28px; }
+      .bullet-grid { gap: 28px; }
 
       /* Remove card rotations and large shadows on mobile to avoid overflow */
       .bullet-card:nth-child(1),
