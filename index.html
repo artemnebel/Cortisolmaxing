@@ -736,13 +736,86 @@
     footer span { color: var(--c1); opacity: .5; }
 
     /* ─── Responsive ─── */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      body { font-size: 16px; }
+
+      /* Prevent bg words from causing overflow */
+      .hero-bg-word, .cta-bg-word { display: none; }
+
+      /* Hero */
+      #hero { padding: 80px 0 60px; min-height: auto; }
+      .label-badge { font-size: 10px; padding: 6px 14px; margin-bottom: 24px; }
+
+      /* Reduce text-shadows so they don't spill horizontally */
+      .hero-headline {
+        text-shadow: 2px 2px 0 var(--c5), 4px 4px 0 var(--c1);
+      }
+      .section-title {
+        text-shadow: 2px 2px 0 var(--c5), 4px 4px 0 var(--c1);
+      }
+      .cta-headline {
+        text-shadow: 2px 2px 0 var(--c5), 4px 4px 0 var(--c1);
+      }
+
+      /* Product / CTA sections */
+      #product { padding: 60px 0; }
+      #cta { padding: 60px 0 80px; }
+      .product-desc { margin-bottom: 40px; }
+
+      /* Problem strip */
+      .problem-block { padding: 36px 24px; }
+
+      /* Keep bullet grids single column */
+      .bullet-grid { grid-template-columns: 1fr !important; gap: 28px; }
+
+      /* Remove card rotations and large shadows on mobile to avoid overflow */
+      .bullet-card:nth-child(1),
+      .bullet-card:nth-child(2),
+      .bullet-card:nth-child(3),
+      .bullet-card:nth-child(4) {
+        transform: none;
+        box-shadow: 4px 4px 0 var(--c1);
+      }
+      .bullet-card:nth-child(2) { box-shadow: 4px 4px 0 var(--c2); }
+      .bullet-card:nth-child(3) { box-shadow: 4px 4px 0 var(--c3); }
+      .bullet-card:nth-child(4) { box-shadow: 4px 4px 0 var(--c4); }
+
+      /* Price pill wrap on small screens */
+      .price-pill {
+        flex-direction: column;
+        gap: 6px;
+        padding: 16px 24px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Hero btn area */
       .hero-cta { flex-direction: column; }
       .btn { width: 100%; justify-content: center; }
-      .hero-cards { height: 260px; }
-      .hc-1 { width: 120px; height: 120px; }
-      .hc-2 { width: 130px; height: 130px; }
-      .hc-3 { width: 140px; height: 140px; }
+      .btn-primary {
+        box-shadow: 0 0 16px rgba(255,58,242,.5), 4px 4px 0 var(--c3);
+        animation: none;
+      }
+
+      /* Hero cards: shrink and contain */
+      .hero-cards { height: 220px; }
+      .hc-1 { width: 110px; height: 110px; left: 5%; font-size: 16px; }
+      .hc-2 { width: 120px; height: 120px; right: 5%; font-size: 16px; }
+      .hc-3 { width: 130px; height: 130px; left: 25%; font-size: 16px; bottom: 0; }
+      .hero-card .card-icon { font-size: 32px; }
+
+      /* Hide decorative elements that can overflow on mobile */
+      .deco-h1, .deco-h2, .deco-h3, .deco-h4, .deco-h5,
+      .deco-pr1, .deco-pr2, .deco-pr3, .deco-pr4,
+      .deco-c1, .deco-c2, .deco-c3, .deco-c4, .deco-c5 { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .label-badge { font-size: 9px; padding: 5px 12px; letter-spacing: .14em; }
+      .hero-cards { height: 180px; }
+      .hc-1 { width: 90px; height: 90px; }
+      .hc-2 { width: 100px; height: 100px; }
+      .hc-3 { width: 110px; height: 110px; left: 20%; }
     }
   </style>
 </head>
@@ -848,7 +921,7 @@
         no purchase needed. just use these.
       </p>
 
-      <div class="bullet-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 80px;">
+      <div class="bullet-grid" style="margin-bottom: 80px;">
 
         <a class="bullet-card" href="https://open.spotify.com/playlist/1s5gPR8QrXvx3zUBqyG1WO" target="_blank" rel="noopener">
           <div class="card-icon-wrap">🎵</div>
